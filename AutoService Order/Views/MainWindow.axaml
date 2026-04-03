@@ -22,7 +22,7 @@
                     HorizontalAlignment="Center"
                     VerticalAlignment="Center">
             <TextBox Watermark="Введите имя клиента"
-                     Text="{Binding }"
+                     Text="{Binding Client }"
                      HorizontalAlignment="Center"
                      VerticalAlignment="Center"
                      Width="250"
@@ -47,7 +47,8 @@
                 Background="Green"
                 Foreground="White"
                 HorizontalAlignment="Center"
-                VerticalAlignment="Bottom"/>
+                VerticalAlignment="Bottom"
+                Command="{Binding StartWorkCommand}"/>
     </StackPanel>
 
 

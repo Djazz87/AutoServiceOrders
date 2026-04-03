@@ -1,6 +1,6 @@
 namespace AutoService_Order.Models;
 
-public class services
+public class Services
 {
     public int Id { get; set; }
     public string Title { get; set; }

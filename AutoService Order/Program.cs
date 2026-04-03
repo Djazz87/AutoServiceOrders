@@ -28,6 +28,10 @@ sealed class Program
                 s.Configure<DataBaseConnection>(c.Configuration.GetSection("DataBaseConnection"));
                 s.AddTransient<MainWindow>();
                 s.AddTransient<MainWindowViewModel>();
+                s.AddTransient<ServicesRepository>();
+                s.AddTransient<WorkWindow>();
+                s.AddTransient<WorkWindowViewModel>();
+                s.AddTransient<WorkRepository>();
 
             }).Build();
         BuildAvaloniaApp(host.Services)

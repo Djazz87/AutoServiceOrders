@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data;
 using AutoService_Order.Models;
 using Microsoft.Extensions.Options;
 using MySqlConnector;
@@ -10,15 +11,14 @@ namespace AutoService_Order.DB;
 public class ServicesRepository
 { 
     MySqlConnection connection;
-
     public ServicesRepository(IOptions<DataBaseConnection> options)
     {
         connection = new MySqlConnection(options.Value.ConnectionString);
     }
 
-    public List<services> GetAll()
+    public List<Services> GetAll()
     {
-        List<services> services = new List<services>();
+        List<Services> services = new List<Services>();
         try
         {
             connection.Open();
@@ -29,19 +29,23 @@ public class ServicesRepository
             {
                 while (dr.Read())
                 {
-                    services.Add(new services
+                    services.Add(new Services
                     {
                         Id = dr.GetInt32("id"),
-                        Title = dr.GetString("title"),
-                        Description = dr.GetString("description"),
+                        Title = dr.GetString("title")
                     });
                 }
             }
-            connection.Close();
+            
         }
         catch (Exception e)
         {
             Console.WriteLine(e);
+        }
+        finally
+        {
+            if(connection.State == ConnectionState.Open)
+                connection.Close();
         }
         return services;
     }
