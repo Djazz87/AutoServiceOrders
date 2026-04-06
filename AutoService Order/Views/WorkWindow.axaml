@@ -2,8 +2,27 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:ViewModels="clr-namespace:AutoService_Order.ViewModels"
         mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
         x:Class="AutoService_Order.Views.WorkWindow"
+        x:DataType="ViewModels:WorkWindowViewModel"
         Title="WorkWindow">
-    Welcome to Avalonia!
+        <Grid RowDefinitions="* Auto"> 
+               <DataGrid ItemsSource="{Binding Works}">
+                   <DataGrid.Columns>
+                       <DataGridCheckBoxColumn Binding="{Binding Selected}"/>
+                       <DataGridTextColumn Header="Id" Binding="{Binding Works.Id}"/>
+                       <DataGridTextColumn Header="Работа" Binding="{Binding Works.WorkName}"/>
+                       <DataGridTextColumn Header="Цена" Binding="{Binding Works.Price}"/>
+                   </DataGrid.Columns>
+                   
+               </DataGrid>
+               
+            <Button Content="Итог"
+                    Background="Green"
+                    Foreground="White"
+                    HorizontalAlignment="Left"
+                    VerticalAlignment="Bottom"
+                    Command="{Binding GetItog}"/>
+        </Grid>                                  
 </Window>

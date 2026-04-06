@@ -32,7 +32,7 @@ public partial class MainWindowViewModel : ViewModelBase
         {
             return;
         }
-        var vm = ActivatorUtilities.CreateInstance<WorkWindowViewModel>(_provider, selectedWork);
+        var vm = ActivatorUtilities.CreateInstance<WorkWindowViewModel>(_provider, SelectedService);
         var win = _provider.GetService<WorkWindow>();
         win.DataContext = vm;
         win.Show();
