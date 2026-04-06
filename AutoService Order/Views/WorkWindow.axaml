@@ -23,6 +23,6 @@
                     Foreground="White"
                     HorizontalAlignment="Left"
                     VerticalAlignment="Bottom"
-                    Command="{Binding GetItog}"/>
+                    Command="{Binding GetItogCommand}"/>
         </Grid>                                  
 </Window>
