@@ -40,7 +40,7 @@ public partial class WorkWindowViewModel : ViewModelBase
    [RelayCommand]
    public void GetItog()
    {
-       var vm = ActivatorUtilities.CreateInstance<OrderWindowVIewModel>(_provider, Price, Works);
+       var vm = ActivatorUtilities.CreateInstance<OrderWindowVIewModel>(_provider, new Order(), Works.Select(s=>s.Works));
        var win = _provider.GetService<OrderWindow>();
        win.DataContext = vm;
        win.Show();

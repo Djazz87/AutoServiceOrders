@@ -32,6 +32,8 @@ sealed class Program
                 s.AddTransient<WorkWindow>();
                 s.AddTransient<WorkWindowViewModel>();
                 s.AddTransient<WorkRepository>();
+                s.AddTransient<OrderRepository>();
+                s.AddTransient<OrderWindow>();
                 
 
             }).Build();
